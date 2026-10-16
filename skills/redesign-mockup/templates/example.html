@@ -131,161 +131,107 @@ const I = {
   share:'<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/>',
 };
 const ic = (n, s='') => `<svg viewBox="0 0 24 24" ${s}>${I[n]}</svg>`;
-const M = 'media/';
 const sb = `<div class="sb"><span>9:41</span><span class="r"><svg width="18" height="12" viewBox="0 0 18 12" style="fill:#fff;stroke:none"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="26" height="12" viewBox="0 0 26 12" style="stroke:#fff;stroke-width:1"><rect x=".5" y=".5" width="22" height="11" rx="3"/><rect x="2" y="2" width="19" height="8" rx="2" style="fill:#fff;stroke:none"/><path d="M24.5 4v4"/></svg></span></div>`;
-const tab = on => `<div class="tab">${['home','gem','trophy','user'].map(n=>`<div class="${n===on?'on':''}">${ic(n)}</div>`).join('')}</div><div class="home-ind"></div>`;
+const tab = on => `<div class="tab">${['home','list','users','user'].map(n=>`<div class="${n===on?'on':''}">${ic(n)}</div>`).join('')}</div><div class="home-ind"></div>`;
 const head = (t, right='') => `${sb}<div class="top"><div class="cb">${ic('left')}</div><div class="ttl">${t}</div>${right||'<div style="width:40px"></div>'}</div>`;
 const ind = '<div class="home-ind"></div>';
+const dots = s => `<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;padding:0 20px">${s.split('').map(c=>`<div style="aspect-ratio:1;border-radius:10px;background:${({'+':'var(--ok-soft)','L':'var(--gold-soft)','A':'var(--bad-soft)','V':'#1A2638','.':'var(--s1)','?':'var(--s2)'})[c]};display:grid;place-items:center;font-size:12px;font-weight:600;color:${({'+':'var(--ok)','L':'var(--gold)','A':'var(--bad)','V':'#7FB7E6','.':'var(--t3)','?':'var(--t2)'})[c]}">${c==='.'?'':c}</div>`).join('')}</div>`;
 
 const S = {
 home: () => `${sb}
 <div class="top" style="padding-top:4px;padding-bottom:0"><div class="cb">${ic('bell')}</div><div class="cb">${ic('gear')}</div></div>
 <div class="hero" style="margin-top:-20px">
-  <div class="ava"><img src="${M}star-one-poster.webp"></div>
-  <div class="lbl">Balans ${ic('down','width="18" height="18"')}</div>
-  <div class="big num">214 000<small>so'm</small></div>
-  <div class="pill num">≈ 1 019 Stars</div>
+  <div class="ava">${ic('clock','style="width:40px;height:40px;color:var(--gold)"')}</div>
+  <div class="lbl">Bugungi smena ${ic('down','width="18" height="18"')}</div>
+  <div class="big num">08:00<small>— 08:00 (+1)</small></div>
+  <div class="pill num">Dorixona #1 · sutka/ikki kun</div>
   <div class="acts">
-    <div class="act"><div class="cb">${ic('plus')}</div>To'ldirish</div>
-    <div class="act"><div class="cb">${ic('star')}</div>Stars</div>
-    <div class="act"><div class="cb">${ic('gift')}</div>Sovg'a</div>
+    <div class="act"><div class="cb">${ic('plus')}</div>Keldim</div>
+    <div class="act"><div class="cb">${ic('out')}</div>Ketdim</div>
+    <div class="act"><div class="cb">${ic('pen')}</div>Ariza</div>
   </div>
 </div>
 <div class="div"></div>
 <div class="sec">
-  <div class="sh"><h3>Xizmatlar</h3><a>Hammasi ${ic('right')}</a></div>
-  <div class="row"><div class="ic"><img src="${M}stars-poster.webp"></div><div class="rt"><b>Telegram Stars</b><span>50 Stars dan</span></div><div class="rr"><b class="num">10 500 so'm</b><span class="tag g">−5%</span></div></div>
-  <div class="row"><div class="ic"><img src="${M}premium-poster.webp"></div><div class="rt"><b>Telegram Premium</b><span>3, 6 yoki 12 oy</span></div><div class="rr"><b class="num">160 000 so'm</b></div></div>
+  <div class="sh"><h3>Shu oy</h3><a>Batafsil ${ic('right')}</a></div>
+  <div class="row"><div class="ic">${ic('clock')}</div><div class="rt"><b>Ishlangan soat</b><span>Norma 240 soat</span></div><div class="rr"><b class="num">168 soat</b><span class="tag ok">70%</span></div></div>
+  <div class="row"><div class="ic">${ic('list')}</div><div class="rt"><b>Kechikishlar</b><span>Oy boshidan</span></div><div class="rr"><b class="num">1 marta</b><span class="tag g">+12 daq</span></div></div>
 </div>
 <div class="div" style="margin-top:8px"></div>
 <div class="sec">
-  <div class="sh"><h3>Sovg'alar</h3><a>Hammasi ${ic('right')}</a></div>
-  <div class="tiles" style="grid-template-columns:repeat(4,1fr);gap:10px">
-    <div class="tile" style="background:#2B2140"><img src="${M}gifts/teddy.webp"></div>
-    <div class="tile" style="background:#3A1A22"><img src="${M}gifts/heart.webp"></div>
-    <div class="tile" style="background:#14302A"><img src="${M}gifts/rose.webp"></div>
-    <div class="tile" style="background:#33240E"><img src="${M}gifts/giftbox.webp"></div>
-  </div>
+  <div class="sh"><h3>Ta'til qoldig'i</h3><a>Ariza ${ic('right')}</a></div>
+  <div class="big num" style="font-size:34px;margin-top:0">12<small>kun</small></div>
 </div>${tab('home')}`,
 
-stars: () => `${head('Stars xarid')}
-<div class="hero" style="padding:6px 0 18px"><div class="ava" style="width:72px;height:72px"><img src="${M}stars-poster.webp" style="width:52px;height:52px"></div><div class="lbl" style="font-size:14px;margin-top:10px">Mavjud: <span class="num" style="color:#fff">12 450 ★</span></div></div>
-<div class="seg"><div class="on">O'zim</div><div>Boshqaga</div></div>
-<div class="cap">Paket tanlang</div>
+attendance: () => `${head('Davomat')}
+<div class="seg" style="margin-top:6px"><div class="on">Oktyabr</div><div>Sentyabr</div><div>Avgust</div></div>
+<div class="cap">Kunlar</div>
+${dots('+..+..L..+..+..V..V..+..A..?.....')}
+<div class="stats"><div><b class="num">9</b><span>Smena</span></div><div><b class="num">1</b><span>Kechikish</span></div><div><b class="num">2</b><span>Ta'til</span></div></div>
+<p style="color:var(--t2);font-size:13px;text-align:center;margin:16px 30px 0">«?» — belgilanmagan. Bu «kelmagan» degani emas: mudir yoki HR tekshiradi.</p>${ind}`,
+
+request: () => `${head('Yangi ariza')}
+<div class="seg" style="margin-top:6px"><div class="on">Ta'til</div><div>Ma'lumotnoma</div><div>Almashish</div></div>
+<div class="cap">Sanalar</div>
 <div class="list">
-  ${[['star-pack-1','50','10 500',0],['star-pack-2','100','21 000',1],['star-pack-3','250','52 500',0],['star-many','500','105 000',0],['star-many','1 000','210 000',0]].map(([p,q,pr,on])=>`
-  <div class="row"><div class="ic"><img src="${M}${p}-poster.webp"></div><div class="rt"><b class="num">${q} Stars</b><span class="num">${pr} so'm</span></div>${q==='100'?'<span class="tag g" style="margin-right:6px">Ommabop</span>':''}<div class="sel ${on?'on':''}"></div></div>`).join('')}
-  <div class="row"><div class="ic">${ic('pen')}</div><div class="rt"><b>Boshqa miqdor</b><span>50 dan 10 000 gacha</span></div>${ic('right','class="chev"')}</div>
+  <div class="row"><div class="ic">${ic('clock')}</div><div class="rt"><b>Boshlanishi</b><span class="num">15.10.2026</span></div>${ic('right','class="chev"')}</div>
+  <div class="row"><div class="ic">${ic('clock')}</div><div class="rt"><b>Tugashi</b><span class="num">21.10.2026</span></div>${ic('right','class="chev"')}</div>
 </div>
-<div class="cta">100 Stars · <span class="num">21 000 so'm</span></div>${ind}`,
+<div class="stats"><div><b class="num">7</b><span>So'ralgan kun</span></div><div><b class="num">12</b><span>Qoldiq</span></div></div>
+<p style="color:var(--t2);font-size:13px;text-align:center;margin:16px 30px 0">Arizani mudir tasdiqlaydi, bot emas.</p>
+<div class="cta">Ariza yuborish</div>${ind}`,
 
-premium: () => `${head('Premium')}
-<div class="hero" style="padding:4px 0 20px"><img src="${M}premium-poster.webp" style="width:110px;height:110px"><div class="big" style="font-size:28px;margin-top:8px">Telegram Premium</div><div class="lbl" style="font-size:15px;margin-top:6px">O'zingizga yoki do'stingizga</div></div>
-<div class="seg"><div class="on">O'zim</div><div>Boshqaga</div></div>
-<div class="cap">Muddat</div>
+requests: () => `${head('Arizalarim')}
+<div class="chips" style="margin-top:8px"><div class="chip on">Hammasi</div><div class="chip">Kutilmoqda</div><div class="chip">Yopilgan</div></div>
 <div class="list">
-  <div class="row"><div class="rt"><b>3 oy</b><span class="num">53 300 so'm / oy</span></div><b class="num" style="margin-right:12px">160 000 so'm</b><div class="sel"></div></div>
-  <div class="row"><div class="rt"><b>6 oy <span class="tag g" style="margin-left:6px">Ommabop</span></b><span class="num">37 500 so'm / oy</span></div><b class="num" style="margin-right:12px">225 000 so'm</b><div class="sel on"></div></div>
-  <div class="row"><div class="rt"><b>12 oy <span class="tag ok" style="margin-left:6px">−39%</span></b><span class="num">32 500 so'm / oy</span></div><b class="num" style="margin-right:12px">390 000 so'm</b><div class="sel"></div></div>
-</div>
-<div class="cap">Nimalar kiradi</div>
+  <div class="row"><div class="ic">${ic('moon')}</div><div class="rt"><b>Ta'til · 7 kun</b><span class="num">15.10 — 21.10</span></div><div class="rr"><span class="tag n">Kutilmoqda</span></div></div>
+  <div class="row"><div class="ic">${ic('list')}</div><div class="rt"><b>Ish joyidan ma'lumotnoma</b><span>Bank uchun</span></div><div class="rr"><span class="tag ok">Tasdiqlandi</span></div></div>
+  <div class="row"><div class="ic">${ic('users')}</div><div class="rt"><b>Smena almashish</b><span class="num">03.10 ↔ 05.10</span></div><div class="rr"><span class="tag bad">Rad etildi</span></div></div>
+</div>${tab('list')}`,
+
+onboarding: () => `${head('Moslashuv rejasi')}
+<div class="hero" style="padding:6px 0 10px"><div class="big num" style="font-size:40px;color:var(--gold)">64%</div><div class="lbl" style="font-size:14px;margin-top:4px">30-kunlik bosqich · ustoz: Dilnoza K.</div></div>
+<div class="cap">Vazifalar</div>
 <div class="list">
-  <div class="row" style="padding:8px 0"><div class="ic" style="width:32px;height:32px">${ic('star','style="width:16px;height:16px;color:var(--gold)"')}</div><div class="rt"><b style="font-size:15px">Reklamasiz, 4 GB fayllar, emoji status</b></div></div>
+  ${[['Sovuq zanjir SOP',1],["Retsept bo'yicha berish",1],['Kassa intizomi',0],['Ustoz bilan 5 smena',0]].map(([t,d])=>`
+  <div class="row"><div class="sel ${d?'on':''}"></div><div class="rt"><b style="font-weight:500">${t}</b></div>${d?'<span class="tag ok">Bajarildi</span>':''}</div>`).join('')}
 </div>
-<div class="cta">6 oylik Premium · <span class="num">225 000 so'm</span></div>${ind}`,
+<div class="cap">Test</div>
+<div class="grp"><div class="row"><div class="rt"><b>30-kun testi</b><span>Hali topshirilmagan</span></div>${ic('right','class="chev"')}</div></div>${ind}`,
 
-gifts: () => `${head("Sovg'alar")}
-<div class="chips" style="margin-top:8px"><div class="chip on">Hammasi</div><div class="chip">Ayiqchalar</div><div class="chip">Gullar</div><div class="chip">Yangi</div></div>
-<div class="grid2">
-  ${[['teddy','Ayiqcha','3 000','15','#2B2140'],['heart','Yurak','3 000','15','#3A1A22'],['rose','Atirgul','5 000','25','#14302A'],['giftbox','Sovg\'a','5 000','25','#33240E'],['bouquet','Guldasta','10 000','50','#1A2638'],['cake','Tort','10 000','50','#2E1A30']].map(([g,n,p,s,c])=>`
-  <div class="card"><div class="im" style="background:${c}"><img src="${M}gifts/${g}.webp"></div><b>${n}</b><span class="num">★ ${s}</span><div class="pr num">${p} so'm</div></div>`).join('')}
-</div>${ind}`,
-
-nft: () => `${sb}<div class="top"><div class="ttl" style="font-size:28px;font-weight:700;padding-left:2px">NFT</div><div class="cb">${ic('list')}</div></div>
-<div class="chips"><div class="chip on">Hammasi</div><div class="chip">Legendary</div><div class="chip">Epic</div><div class="chip">Rare</div></div>
-<div class="grid2">
-  ${[['santa-bear','Santa Bear','Legendary','4 200 000','12','#C9C1E0','g'],['diamond','Blue Diamond','Epic','2 800 000','34','#F3D54E','n'],['rocket','Rocket','Epic','1 900 000','57','#D9372E','n'],['ring','Signet Ring','Rare','1 400 000','120','#7FB7E6','n']].map(([g,n,r,p,l,c,t])=>`
-  <div class="card"><div class="im" style="background:${c}"><img src="${M}gifts/${g}.webp"></div><span class="tag ${t}" style="margin:0 0 6px">${r}</span><b>${n}</b><div class="pr num">${p} so'm</div><span class="num">${l} ta qoldi</span></div>`).join('')}
-</div>${tab('gem')}`,
-
-topup: () => `${head("Hisobni to'ldirish")}
-<div class="hero" style="padding-top:34px">
-  <div class="lbl" style="margin:0;font-size:15px">Summa</div>
-  <div class="big num" style="font-size:56px">50 000<small>so'm</small></div>
-  <div class="pill num">Joriy balans: 214 000 so'm</div>
-</div>
-<div class="chips" style="justify-content:center;margin-top:24px"><div class="chip num">10 000</div><div class="chip on num">50 000</div><div class="chip num">100 000</div><div class="chip num">500 000</div></div>
-<div class="cap">To'lov usuli</div>
+team: () => `${sb}<div class="top"><div class="ttl" style="font-size:28px;font-weight:700;padding-left:2px">Raport</div><div class="cb">${ic('clock')}</div></div>
+<div class="chips"><div class="chip on">Bugun</div><div class="chip">Kecha</div><div class="chip">Boshqa kun</div></div>
 <div class="list">
-  <div class="row"><div class="ic">${ic('card')}</div><div class="rt"><b>Uzcard</b><span>Karta orqali o'tkazma</span></div><div class="sel on"></div></div>
-  <div class="row"><div class="ic">${ic('card')}</div><div class="rt"><b>Humo</b><span>Karta orqali o'tkazma</span></div><div class="sel"></div></div>
+  ${[['A','Aziza R.','Farmatsevt','24 soat','ok','Keldi','#2B2140'],['J','Jasur T.','Farmatsevt','—','n','Belgilanmagan','#14302A'],['M','Malika Y.','Kassir','12 soat','g','Kechikdi','#33240E'],['N','Nodira N.','Kassir','—','bad','Kelmadi','#3A1A22']].map(([l,n,p,h,t,s,c])=>`
+  <div class="row"><div class="ini" style="background:${c}">${l}</div><div class="rt"><b>${n}</b><span>${p}</span></div><div class="rr"><b class="num">${h}</b><span class="tag ${t}">${s}</span></div></div>`).join('')}
 </div>
-<p style="color:var(--t2);font-size:13px;text-align:center;margin:18px 30px 0">Min 1 000 · Maks 2 500 000 so'm. Balans to'lovdan so'ng avtomatik to'ldiriladi.</p>
-<div class="cta">To'lovga o'tish ${ic('right','width="20" height="20"')}</div>${ind}`,
+<div class="cta">Saqlash</div>${tab('users')}`,
 
-pay: () => `${head("To'lov")}
-<div class="hero" style="padding-top:10px">
-  <div style="width:84px;height:84px;border-radius:50%;border:3px solid var(--s2);border-top-color:var(--gold);display:grid;place-items:center;font-weight:700;font-size:20px" class="num">4:59</div>
-  <div class="lbl" style="margin-top:16px;font-size:15px">To'lov kutilmoqda</div>
-  <div class="big num">50 127<small>so'm</small></div>
-  <div class="pill">${ic('copy')} Summani nusxalash</div>
+documents: () => `${head('Hujjatlarim')}
+<div class="list" style="margin-top:8px">
+  <div class="row"><div class="ic">${ic('shield')}</div><div class="rt"><b>Farmatsevt sertifikati</b><span class="num">01.12.2026 gacha</span></div><div class="rr"><span class="tag g">45 kun</span></div></div>
+  <div class="row"><div class="ic">${ic('card')}</div><div class="rt"><b>Sanitariya kitobchasi</b><span class="num">22.10.2026 gacha</span></div><div class="rr"><span class="tag bad">5 kun</span></div></div>
+  <div class="row"><div class="ic">${ic('list')}</div><div class="rt"><b>Diplom</b><span>Muddatsiz</span></div><div class="rr"><span class="tag ok">OK</span></div></div>
 </div>
-<p style="color:var(--bad);font-size:13px;text-align:center;margin:16px 34px 0;font-weight:500">Aynan shu summani o'tkazing — 1 so'm farq ham to'lovni kechiktiradi</p>
-<div class="cap">Qabul qiluvchi karta</div>
+<p style="color:var(--t2);font-size:13px;text-align:center;margin:16px 30px 0">Muddat tugashidan 30 kun oldin eslatma keladi.</p>${ind}`,
+
+sop: () => `${head("Qoidalar")}
+<div class="chips" style="margin-top:8px"><div class="chip on">Mening lavozimim</div><div class="chip">Hammasi</div></div>
 <div class="grp">
-  <div class="row"><div class="rt"><span>Karta raqami</span><b class="mono" style="font-size:17px;margin-top:2px">8600 0000 0000 0000</b></div><div class="cb" style="width:34px;height:34px">${ic('copy','style="width:16px;height:16px"')}</div></div>
-  <div class="row"><div class="rt"><span>Karta egasi</span><b style="margin-top:2px">CARD HOLDER</b></div></div>
-</div>
-<div class="cta sec2">Bekor qilish</div>${ind}`,
-
-top: () => `${sb}<div class="top"><div class="ttl" style="font-size:28px;font-weight:700;padding-left:2px">Top xaridorlar</div><div class="cb">${ic('clock')}</div></div>
-<div style="display:flex;justify-content:center;align-items:flex-end;gap:22px;margin:14px 0 6px">
-  ${[['J','Jasurbek','3,18 mln','#2B2140',2,64],['A','Aziz','4,05 mln','#33240E',1,84],['M','Malika','1,92 mln','#14302A',3,64]].map(([l,n,a,c,r,s])=>`
-  <div style="text-align:center;width:92px"><div style="position:relative;width:${s}px;height:${s}px;margin:0 auto"><div class="ini" style="width:${s}px;height:${s}px;background:${c};font-size:${s/2.6}px;${r===1?'box-shadow:0 0 0 2px var(--gold),0 8px 30px rgba(245,184,41,.25)':''}">${l}</div><div style="position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:${r===1?'var(--gold)':'var(--s2)'};color:${r===1?'#000':'#fff'};font-size:12px;font-weight:700;display:grid;place-items:center">${r}</div></div><b style="display:block;margin-top:14px;font-size:15px">${n}</b><span class="num" style="font-size:13px;color:var(--t2)">${a}</span></div>`).join('')}
-</div>
-<div class="div" style="margin-top:18px"></div>
-<div class="list" style="margin-top:6px">
-  ${[['4','S','Siz','33 buyurtma','2 640 000','#1A2638',1],['5','D','Dilnoza','27 buyurtma','1 480 000','#2E1A30'],['6','B','Bekzod','22 buyurtma','1 210 000','#14302A'],['7','N','Nodira','19 buyurtma','990 000','#3A1A22']].map(([r,l,n,o,a,c,me])=>`
-  <div class="row" ${me?'style="background:var(--s1);margin:0 -12px;padding:12px;border-radius:14px;border:0"':''}><span class="num" style="width:18px;color:var(--t2);font-weight:600">${r}</span><div class="ini" style="background:${c}">${l}</div><div class="rt"><b>${n}</b><span>${o}</span></div><b class="num">${a} so'm</b></div>`).join('')}
-</div>${tab('trophy')}`,
-
-history: () => `${head('Buyurtmalar')}
-<div class="cap" style="margin-top:8px">Bugun</div>
-<div class="list">
-  <div class="row"><div class="ic"><img src="${M}stars-poster.webp"></div><div class="rt"><b>100 Stars</b><span>@sardor · 14:32</span></div><div class="rr"><b class="num">−18 500</b><span class="tag ok">Bajarildi</span></div></div>
-  <div class="row"><div class="ic"><img src="${M}premium-poster.webp"></div><div class="rt"><b>Premium · 6 oy</b><span>@dilnoza · 12:05</span></div><div class="rr"><b class="num">−195 000</b><span class="tag n">Yuborilmoqda</span></div></div>
-</div>
-<div class="cap">Kecha</div>
-<div class="list">
-  <div class="row"><div class="ic"><img src="${M}gifts/rose.webp"></div><div class="rt"><b>Atirgul</b><span>@aziz · 21:47</span></div><div class="rr"><b class="num">−9 500</b><span class="tag bad">Xatolik</span></div></div>
-  <div class="row"><div class="ic">${ic('plus')}</div><div class="rt"><b>Balans to'ldirildi</b><span>Uzcard · 19:10</span></div><div class="rr"><b class="num" style="color:var(--ok)">+200 000</b><span class="tag ok">Bajarildi</span></div></div>
-  <div class="row"><div class="ic"><img src="${M}stars-poster.webp"></div><div class="rt"><b>50 Stars</b><span>@sardor · 10:22</span></div><div class="rr"><b class="num">−10 500</b><span class="tag ok">Bajarildi</span></div></div>
+  ${['Sovuq zanjir: +2..+8 °C','Retseptli dorilarni berish','Smena topshirish 08:00','Mijozga xizmat standarti'].map(t=>`<div class="row"><div class="ic">${ic('list')}</div><div class="rt"><b style="font-weight:500">${t}</b></div>${ic('right','class="chev"')}</div>`).join('')}
 </div>${ind}`,
-
-referral: () => `${head('Hamkorlik')}
-<div class="hero" style="padding-top:30px">
-  <div class="ava"><img src="${M}gift-poster.webp"></div>
-  <div class="big num" style="font-size:64px;margin-top:18px;color:var(--gold)">3%</div>
-  <p style="color:var(--t2);font-size:15px;text-align:center;margin:6px 40px 0;line-height:1.45">Do'stingiz har bir xarid qilganda, summaning 3% balansingizga tushadi</p>
-</div>
-<div class="stats" style="margin-top:28px"><div><b class="num">7</b><span>Taklif qilingan</span></div><div><b class="num">42 300</b><span>Ishlab topilgan, so'm</span></div></div>
-<div class="cap">Sizning havolangiz</div>
-<div class="grp"><div class="row"><div class="rt"><b class="mono" style="font-size:14px;font-weight:500;color:var(--t2)">t.me/globastars_bot?start=A1…</b></div><div class="cb" style="width:34px;height:34px">${ic('copy','style="width:16px;height:16px"')}</div></div></div>
-<div class="cta">${ic('share','width="20" height="20"')} Havolani ulashish</div>${ind}`,
 
 profile: () => `${sb}
 <div class="top"><div style="width:40px"></div><div class="cb">${ic('gear')}</div></div>
 <div class="hero">
-  <div class="ini" style="width:84px;height:84px;font-size:34px;background:#2B2140">S</div>
-  <div class="big" style="font-size:26px;margin-top:14px">Sardor</div>
-  <div class="pill" style="margin-top:10px">@sardor · <span class="mono">ID 8100442</span></div>
+  <div class="ini" style="width:84px;height:84px;font-size:34px;background:#2B2140">A</div>
+  <div class="big" style="font-size:26px;margin-top:14px">Aziza Rahimova</div>
+  <div class="pill" style="margin-top:10px">Farmatsevt · Dorixona #1</div>
 </div>
-<div class="stats"><div><b class="num">1</b><span>Buyurtma</span></div><div><b class="num">18 500</b><span>Sarflangan</span></div><div><b class="num">214 000</b><span>Balans</span></div></div>
+<div class="stats"><div><b class="num">2 yil</b><span>Staj</span></div><div><b class="num">12</b><span>Ta'til kuni</span></div><div><b class="num">0</b><span>Ogohlantirish</span></div></div>
 <div class="grp" style="margin-top:22px">
-  ${[['list','Buyurtmalar tarixi'],['users','Hamkorlik dasturi'],['shield','Xavfsizlik'],['help','Yordam']].map(([i,t])=>`<div class="row"><div class="ic">${ic(i)}</div><div class="rt"><b style="font-weight:500">${t}</b></div>${ic('right','class="chev"')}</div>`).join('')}
-</div>
-<div class="grp" style="margin-top:14px"><div class="row"><div class="ic" style="color:var(--bad)">${ic('out')}</div><div class="rt"><b style="font-weight:500;color:var(--bad)">Chiqish</b></div></div></div>
-${tab('user')}`,
+  ${[['list','Arizalarim'],['shield','Hujjatlarim'],['users','Moslashuv rejasi'],['help','HR bilan bog\'lanish']].map(([i,t])=>`<div class="row"><div class="ic">${ic(i)}</div><div class="rt"><b style="font-weight:500">${t}</b></div>${ic('right','class="chev"')}</div>`).join('')}
+</div>${tab('user')}`,
 
 settings: () => `${head('Sozlamalar')}
 <div class="cap" style="margin-top:8px">Umumiy</div>
@@ -293,17 +239,13 @@ settings: () => `${head('Sozlamalar')}
   <div class="row"><div class="ic">${ic('globe')}</div><div class="rt"><b style="font-weight:500">Til</b></div><span style="color:var(--t2);margin-right:4px">O'zbekcha</span>${ic('right','class="chev"')}</div>
   <div class="row"><div class="ic">${ic('moon')}</div><div class="rt"><b style="font-weight:500">Mavzu</b></div><span style="color:var(--t2);margin-right:4px">Tungi</span>${ic('right','class="chev"')}</div>
 </div>
-<div class="cap">Tajriba</div>
+<div class="cap">Bildirishnomalar</div>
 <div class="grp">
-  <div class="row"><div class="ic">${ic('sound')}</div><div class="rt"><b style="font-weight:500">Ovoz</b></div><div class="tg"></div></div>
-  <div class="row"><div class="ic">${ic('vib')}</div><div class="rt"><b style="font-weight:500">Tebranish</b></div><div class="tg"></div></div>
+  <div class="row"><div class="ic">${ic('bell')}</div><div class="rt"><b style="font-weight:500">Smena eslatmasi</b></div><div class="tg"></div></div>
+  <div class="row"><div class="ic">${ic('shield')}</div><div class="rt"><b style="font-weight:500">Hujjat muddati</b></div><div class="tg"></div></div>
+  <div class="row"><div class="ic">${ic('sound')}</div><div class="rt"><b style="font-weight:500">Ovozli javob</b></div><div class="tg off"></div></div>
 </div>
-<div class="cap">Maxfiylik</div>
-<div class="grp">
-  <div class="row"><div class="ic">${ic('eye')}</div><div class="rt"><b style="font-weight:500">Maxfiylik rejimi</b></div><div class="tg off"></div></div>
-</div>
-<p style="color:var(--t2);font-size:13px;margin:8px 36px 0;line-height:1.4">Yoqilsa, reytingda ko'rinmaysiz va sovg'alar anonim yuboriladi.</p>
-<p style="color:var(--t3);font-size:13px;text-align:center;margin-top:40px">GlobaStars · v0.1.0</p>${ind}`,
+<p style="color:var(--t3);font-size:13px;text-align:center;margin-top:40px">HR Mini App · v0.1.0</p>${ind}`,
 };
 const draw = () => { const r = location.hash.replace('#','') || 'home'; document.getElementById('app').innerHTML = (S[r]||S.home)(); };
 addEventListener('hashchange', draw); draw();

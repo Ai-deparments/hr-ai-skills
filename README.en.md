@@ -34,6 +34,13 @@ This repo is the reusable part of that work: the rules, procedures and prompts t
 | [perf-lag-audit](skills/perf-lag-audit/SKILL.md) | Measure-first lag and jank fixes, with before/after numbers |
 | [security-audit](skills/security-audit/SKILL.md) | Quick security pass: Strix if installed, plus a manual checklist |
 | [cloudflare-security-audit](third_party/cloudflare-security-audit/) | Cloudflare's deep audit methodology, vendored unchanged under MIT ([upstream](https://github.com/cloudflare/security-audit-skill)) |
+| [playwright-skill](third_party/playwright-skill/) | Browser automation: tests, screenshots, responsive checks (MIT, [lackeyjb](https://github.com/lackeyjb/playwright-skill)) |
+| [task-observer](third_party/task-observer/) | Watches your work and finds tasks worth turning into skills (CC BY 4.0, [rebelytics](https://github.com/rebelytics/one-skill-to-rule-them-all)) |
+
+**Recommended but not bundled** (no license, so install them from the authors):
+- `apple-design` ([dickwu/apple-design-skill](https://github.com/dickwu/apple-design-skill));
+- `frontend-design` and `taste-skill`;
+- `obsidian-memory-setup`.
 
 There are also [`personas/`](personas/) (system-prompt templates for all 7 agents with `{{company_name}}` placeholders) and [`mcp-server/`](mcp-server/) (a demo MCP server with read-only HR tools over CSV data).
 

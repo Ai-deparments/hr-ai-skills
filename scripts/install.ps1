@@ -20,4 +20,7 @@ if (-not $NoThirdParty) {
     $md = Join-Path $t "SKILL.md"
     $text = [IO.File]::ReadAllText($md) -replace '(?m)^name:\s*security-audit\s*$', 'name: cloudflare-security-audit'
     [IO.File]::WriteAllText($md, $text)
+    Install-Skill (Join-Path $root "third_party/playwright-skill/playwright-skill") "playwright-skill" | Out-Null
+    Install-Skill (Join-Path $root "third_party/task-observer/task-observer") "task-observer" | Out-Null
+    Write-Host "playwright-skill needs: cd $dest/playwright-skill; npm install; npx playwright install chromium"
 }

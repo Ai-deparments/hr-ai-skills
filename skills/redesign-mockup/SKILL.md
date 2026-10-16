@@ -29,19 +29,19 @@ Mockups must use the real content. Never put lorem ipsum or invented features in
 ### 3. Old overview grid
 Start the dev server (mock/demo mode if available, in the background), then run the bundled `scripts/shots.mjs` from the scratchpad (setup: `npm init -y && npm i playwright sharp && npx playwright install chromium`):
 ```bash
-node shots.mjs http://localhost:5173 old.png home,stars,profile "#/{r}" 4
+node shots.mjs http://localhost:5173 old.png home,attendance,profile "#/{r}" 4
 ```
 If the `screens-overview` skill exists, this step is exactly that skill.
 
 ### 4. Build the redesign mockup (scratchpad)
-- Copy `templates/example.html` into `<scratchpad>/mock/index.html`. It is a full worked example: a 12-screen fintech Telegram Mini App in Phantom-wallet style. It shows the structure (`:root` tokens, component classes, inline SVG icon set `I`, `S = { route: () => html }`, hash switching) and the quality bar.
+- Copy `templates/example.html` into `<scratchpad>/mock/index.html`. It is a full worked example: a 10-screen HR employee Telegram Mini App (shift check-in, attendance, requests, onboarding, documents) in a dark wallet-style UI. It shows the structure (`:root` tokens, component classes, inline SVG icon set `I`, `S = { route: () => html }`, hash switching) and the quality bar.
 - Replace the `:root` tokens with the reference's tokens from step 1. Then rewrite **one render function per route** in `S` with that screen's real content. Keep the same route names as the real app.
 - 390×844 body. Status bar on top, home indicator at the bottom, tab bar on top-level screens, back button + title on inner screens, primary CTA pinned at the bottom where the real screen has one.
 - Spend the boldness in one signature element (e.g. the brand avatar/hero). Keep everything else quiet.
 
 ### 5. Shoot the mockup
 ```bash
-node shots.mjs "file:///<scratchpad>/mock" new.png home,stars,profile "index.html#{r}" 4
+node shots.mjs "file:///<scratchpad>/mock" new.png home,attendance,profile "index.html#{r}" 4
 ```
 Use the same route list and order as the old grid, so screen N in the old grid matches screen N in the new one. Run it with `run_in_background` and wait with an until-loop on `done`.
 

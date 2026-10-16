@@ -96,7 +96,7 @@ Targets: UI ≥ 50 fps at ×2, no long frames while idle; scrolling ≥ 45 fps a
   `--still` too.
 - **Create once, render selectively**: players live while their screen lives;
   the scheduler decides what draws.
-- Result reference (GlobaStars gifts grid, 8 heavy gifts all playing): CPU ×2
+- Result reference (Mini App grid with 8 heavy animations all playing): CPU ×2
   UI 54 fps, each animation 15 fps; ×1 60/27; reduce-motion bug 21 → 60 fps.
 - Count *moving* animations, not just fps: a fix that freezes animations
   "wins" fps and fails the user.

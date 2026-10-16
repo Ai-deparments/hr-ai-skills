@@ -47,6 +47,13 @@ Bu repozitoriyda o'sha ishning qayta ishlatiladigan qismi bor: agentlar amal qil
 | [perf-lag-audit](skills/perf-lag-audit/SKILL.md) | Qotish va sekinlikni o'lchab topadi va tuzatadi, oldin/keyin raqamlari bilan |
 | [security-audit](skills/security-audit/SKILL.md) | Tezkor xavfsizlik tekshiruvi: Strix (bo'lsa) va qo'lda tekshirish ro'yxati |
 | [cloudflare-security-audit](third_party/cloudflare-security-audit/) | Cloudflare'ning chuqur xavfsizlik auditi metodikasi (MIT, o'zgartirilmagan, [manba](https://github.com/cloudflare/security-audit-skill)) |
+| [playwright-skill](third_party/playwright-skill/) | Brauzerni avtomatlashtirish: testlar, skrinshotlar, responsive tekshiruv (MIT, [lackeyjb](https://github.com/lackeyjb/playwright-skill)) |
+| [task-observer](third_party/task-observer/) | Ish jarayonini kuzatib, qaysi vazifalarni skill qilish kerakligini topadi (CC BY 4.0, [rebelytics](https://github.com/rebelytics/one-skill-to-rule-them-all)) |
+
+**Tavsiya etiladi (litsenziyasi yo'q, shuning uchun bu yerga nusxalanmagan — muallifdan o'rnating):**
+- `apple-design` — Apple qo'llanmalari bo'yicha dizayn tekshiruvi ([dickwu/apple-design-skill](https://github.com/dickwu/apple-design-skill));
+- `frontend-design`, `taste-skill` — shablonsiz, o'ziga xos frontend dizayn;
+- `obsidian-memory-setup` — Obsidian orqali Claude uchun xotira.
 
 Shuningdek:
 - [`personas/`](personas/) — 7 agentning tizim promptlari shablonlari;
@@ -119,6 +126,13 @@ Cloudflare skill'i `cloudflare-security-audit` nomi bilan o'rnatiladi. Kerak bo'
 | [perf-lag-audit](skills/perf-lag-audit/SKILL.md) | Находит и чинит лаги по замерам, с цифрами до и после |
 | [security-audit](skills/security-audit/SKILL.md) | Быстрая проверка безопасности: Strix (если установлен) и ручной чек-лист |
 | [cloudflare-security-audit](third_party/cloudflare-security-audit/) | Глубокий аудит безопасности по методике Cloudflare (MIT, без изменений, [источник](https://github.com/cloudflare/security-audit-skill)) |
+| [playwright-skill](third_party/playwright-skill/) | Автоматизация браузера: тесты, скриншоты, проверка адаптивности (MIT, [lackeyjb](https://github.com/lackeyjb/playwright-skill)) |
+| [task-observer](third_party/task-observer/) | Наблюдает за работой и находит задачи, которые стоит оформить в скиллы (CC BY 4.0, [rebelytics](https://github.com/rebelytics/one-skill-to-rule-them-all)) |
+
+**Рекомендуем (без лицензии, поэтому не копируем — ставьте у автора):**
+- `apple-design` — ревью дизайна по гайдам Apple ([dickwu/apple-design-skill](https://github.com/dickwu/apple-design-skill));
+- `frontend-design`, `taste-skill` — дизайн фронтенда без шаблонности;
+- `obsidian-memory-setup` — память для Claude через Obsidian.
 
 Также в репозитории:
 - [`personas/`](personas/) — шаблоны системных промптов всех 7 агентов;
