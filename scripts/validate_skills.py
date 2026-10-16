@@ -13,11 +13,14 @@ def parse_frontmatter(text: str) -> dict | None:
     end = text.find("\n---", 3)
     if end == -1:
         return None
-    meta = {}
+    meta, key = {}, None
     for line in text[3:end].strip().splitlines():
-        if ":" in line and not line.startswith(" "):
+        if ":" in line and not line.startswith((" ", "\t")):
             key, _, value = line.partition(":")
-            meta[key.strip()] = value.strip()
+            key, value = key.strip(), value.strip()
+            meta[key] = "" if value in (">", "|", ">-", "|-") else value
+        elif key and line.strip():  # continuation of a folded / literal block scalar
+            meta[key] = (meta[key] + " " + line.strip()).strip()
     return meta
 
 

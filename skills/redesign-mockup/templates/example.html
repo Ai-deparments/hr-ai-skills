@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --s1:#121212; --s2:#1C1C1E; --line:#1E1E1E;
+  --t1:#fff; --t2:#8E8E93; --t3:#5A5A5E;
+  --gold:#F5B829; --gold-soft:rgba(245,184,41,.14);
+  --ok:#30D158; --ok-soft:rgba(48,209,88,.14);
+  --bad:#FF453A; --bad-soft:rgba(255,69,58,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--t1);font-family:Inter,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{width:390px;height:844px;overflow:hidden;position:relative}
+.num{font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.sb{height:47px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 6px 34px;font-weight:600;font-size:16px}
+.sb .r{display:flex;gap:6px;align-items:center}
+.top{display:flex;justify-content:space-between;align-items:center;padding:10px 20px}
+.cb{width:40px;height:40px;border-radius:50%;background:var(--s1);display:grid;place-items:center}
+.cb svg{width:20px;height:20px}
+.ttl{font-size:17px;font-weight:600}
+svg{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hero{display:flex;flex-direction:column;align-items:center;padding-top:4px}
+.ava{width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#3a2a05,#1a1300);display:grid;place-items:center;box-shadow:0 0 0 1px rgba(245,184,41,.25),0 10px 40px rgba(245,184,41,.18)}
+.ava img{width:60px;height:60px}
+.lbl{margin-top:16px;color:var(--t2);font-size:17px;font-weight:500;display:flex;gap:6px;align-items:center}
+.big{font-size:44px;font-weight:700;margin-top:6px}
+.big small{font-size:22px;color:var(--t2);font-weight:600;margin-left:4px}
+.pill{margin-top:14px;background:var(--s1);border-radius:99px;padding:9px 16px;font-size:14px;color:var(--t2);display:flex;gap:8px;align-items:center;font-weight:500}
+.pill svg{width:16px;height:16px}
+.mono{font-family:'JetBrains Mono',monospace}
+.acts{display:flex;gap:16px;justify-content:center;margin-top:26px}
+.act{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600}
+.act .cb{width:36px;height:36px}.act .cb svg{width:18px;height:18px}
+.div{height:1px;background:var(--line);margin:24px 0 0}
+.sec{padding:20px 22px 0}
+.sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.sh h3{font-size:19px;font-weight:700}
+.sh a{color:var(--t2);font-size:16px;font-weight:500;display:flex;align-items:center;gap:2px}
+.sh a svg{width:18px;height:18px}
+.row{display:flex;align-items:center;gap:14px;padding:9px 0}
+.ic{width:46px;height:46px;border-radius:50%;background:var(--s1);display:grid;place-items:center;flex:none;overflow:hidden}
+.ic img{width:34px;height:34px}
+.ic svg{width:20px;height:20px}
+.rt{flex:1;min-width:0}
+.rt b{display:block;font-size:16px;font-weight:600}
+.rt span{font-size:14px;color:var(--t2)}
+.rr{text-align:right}
+.rr b{display:block;font-size:16px;font-weight:600}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:3px 7px;border-radius:7px;margin-top:3px}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}.tag.bad{background:var(--bad-soft);color:var(--bad)}
+.tag.g{background:var(--gold-soft);color:var(--gold)}.tag.n{background:var(--s2);color:var(--t2)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tile{aspect-ratio:1;border-radius:18px;display:grid;place-items:center}
+.tile img{width:70%}
+.tab{position:absolute;bottom:0;left:0;right:0;height:84px;border-top:1px solid var(--line);background:rgba(0,0,0,.92);display:flex;justify-content:space-around;padding-top:14px}
+.tab svg{width:28px;height:28px;color:var(--t3)}
+.tab .on svg{color:var(--t1)}
+.home-ind{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:#fff}
+.seg{display:flex;background:var(--s1);border-radius:12px;padding:3px;margin:0 20px}
+.seg div{flex:1;text-align:center;padding:9px;border-radius:9px;font-size:15px;font-weight:600;color:var(--t2)}
+.seg .on{background:var(--s2);color:var(--t1)}
+.list{margin:0 20px}
+.list .row{border-bottom:1px solid var(--line);padding:12px 0}
+.list .row:last-child{border-bottom:0}
+.sel{width:24px;height:24px;border-radius:50%;border:2px solid var(--t3);flex:none}
+.sel.on{border:7px solid var(--gold)}
+.cta{position:absolute;left:20px;right:20px;bottom:30px;height:54px;border-radius:16px;background:#fff;color:#000;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;gap:8px}
+.cta.sec2{background:var(--s1);color:var(--t1)}
+.cap{color:var(--t2);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:0 20px;margin:22px 0 8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 20px}
+.card{background:var(--s1);border-radius:20px;padding:12px}
+.card .im{aspect-ratio:1;border-radius:14px;display:grid;place-items:center;margin-bottom:10px}
+.card .im img{width:66%}
+.card b{display:block;font-size:15px;font-weight:600}
+.card span{font-size:13px;color:var(--t2)}
+.card .pr{font-size:15px;font-weight:700;margin-top:6px}
+.chips{display:flex;gap:8px;padding:0 20px;margin-bottom:16px}
+.chip{padding:8px 14px;border-radius:99px;background:var(--s1);font-size:14px;font-weight:600;color:var(--t2)}
+.chip.on{background:#fff;color:#000}
+.grp{background:var(--s1);border-radius:16px;margin:0 20px;padding:0 16px}
+.grp .row{border-bottom:1px solid var(--line);padding:13px 0}
+.grp .row:last-child{border-bottom:0}
+.grp .ic{width:32px;height:32px;border-radius:9px;background:var(--s2)}
+.grp .ic svg{width:17px;height:17px}
+.chev{color:var(--t3);width:18px;height:18px}
+.tg{width:51px;height:31px;border-radius:16px;background:var(--ok);position:relative;flex:none}
+.tg::after{content:'';position:absolute;top:2px;right:2px;width:27px;height:27px;border-radius:50%;background:#fff}
+.tg.off{background:#39393D}.tg.off::after{right:auto;left:2px}
+.stats{display:flex;margin:22px 20px 0;background:var(--s1);border-radius:16px}
+.stats div{flex:1;text-align:center;padding:14px 0}
+.stats div+div{border-left:1px solid var(--line)}
+.stats b{display:block;font-size:18px;font-weight:700}
+.stats span{font-size:12px;color:var(--t2)}
+.ini{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:17px;flex:none}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const I = {
+  bell:'<path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>',
+  gear:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+  gift:'<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/>',
+  right:'<path d="M9 6l6 6-6 6"/>', down:'<path d="M6 9l6 6 6-6"/>', left:'<path d="M15 6l-6 6 6 6"/>',
+  copy:'<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
+  home:'<path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>',
+  gem:'<path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M12 21L8 9l4-6 4 6z"/>',
+  trophy:'<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',
+  user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+  list:'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
+  users:'<circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M16 3.1a4 4 0 0 1 0 7.8M22 21a7 7 0 0 0-4-6.3"/>',
+  shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  help:'<circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/>',
+  out:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>',
+  globe:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>',
+  moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/>',
+  sound:'<path d="M11 5L6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/>',
+  vib:'<rect x="7" y="3" width="10" height="18" rx="2"/><path d="M3 8v8M21 8v8"/>',
+  eye:'<path d="M17.9 17.9A10 10 0 0 1 12 20c-7 0-10-8-10-8a18 18 0 0 1 4.1-5.9M9.9 4.2A9 9 0 0 1 12 4c7 0 10 8 10 8a18 18 0 0 1-2.2 3.2M1 1l22 22"/>',
+  card:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>',
+  clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  send:'<path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>',
+  pen:'<path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+  share:'<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/>',
+};
+const ic = (n, s='') => `<svg viewBox="0 0 24 24" ${s}>${I[n]}</svg>`;
+const M = 'media/';
+const sb = `<div class="sb"><span>9:41</span><span class="r"><svg width="18" height="12" viewBox="0 0 18 12" style="fill:#fff;stroke:none"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="26" height="12" viewBox="0 0 26 12" style="stroke:#fff;stroke-width:1"><rect x=".5" y=".5" width="22" height="11" rx="3"/><rect x="2" y="2" width="19" height="8" rx="2" style="fill:#fff;stroke:none"/><path d="M24.5 4v4"/></svg></span></div>`;
+const tab = on => `<div class="tab">${['home','gem','trophy','user'].map(n=>`<div class="${n===on?'on':''}">${ic(n)}</div>`).join('')}</div><div class="home-ind"></div>`;
+const head = (t, right='') => `${sb}<div class="top"><div class="cb">${ic('left')}</div><div class="ttl">${t}</div>${right||'<div style="width:40px"></div>'}</div>`;
+const ind = '<div class="home-ind"></div>';
+
+const S = {
+home: () => `${sb}
+<div class="top" style="padding-top:4px;padding-bottom:0"><div class="cb">${ic('bell')}</div><div class="cb">${ic('gear')}</div></div>
+<div class="hero" style="margin-top:-20px">
+  <div class="ava"><img src="${M}star-one-poster.webp"></div>
+  <div class="lbl">Balans ${ic('down','width="18" height="18"')}</div>
+  <div class="big num">214 000<small>so'm</small></div>
+  <div class="pill num">≈ 1 019 Stars</div>
+  <div class="acts">
+    <div class="act"><div class="cb">${ic('plus')}</div>To'ldirish</div>
+    <div class="act"><div class="cb">${ic('star')}</div>Stars</div>
+    <div class="act"><div class="cb">${ic('gift')}</div>Sovg'a</div>
+  </div>
+</div>
+<div class="div"></div>
+<div class="sec">
+  <div class="sh"><h3>Xizmatlar</h3><a>Hammasi ${ic('right')}</a></div>
+  <div class="row"><div class="ic"><img src="${M}stars-poster.webp"></div><div class="rt"><b>Telegram Stars</b><span>50 Stars dan</span></div><div class="rr"><b class="num">10 500 so'm</b><span class="tag g">−5%</span></div></div>
+  <div class="row"><div class="ic"><img src="${M}premium-poster.webp"></div><div class="rt"><b>Telegram Premium</b><span>3, 6 yoki 12 oy</span></div><div class="rr"><b class="num">160 000 so'm</b></div></div>
+</div>
+<div class="div" style="margin-top:8px"></div>
+<div class="sec">
+  <div class="sh"><h3>Sovg'alar</h3><a>Hammasi ${ic('right')}</a></div>
+  <div class="tiles" style="grid-template-columns:repeat(4,1fr);gap:10px">
+    <div class="tile" style="background:#2B2140"><img src="${M}gifts/teddy.webp"></div>
+    <div class="tile" style="background:#3A1A22"><img src="${M}gifts/heart.webp"></div>
+    <div class="tile" style="background:#14302A"><img src="${M}gifts/rose.webp"></div>
+    <div class="tile" style="background:#33240E"><img src="${M}gifts/giftbox.webp"></div>
+  </div>
+</div>${tab('home')}`,
+
+stars: () => `${head('Stars xarid')}
+<div class="hero" style="padding:6px 0 18px"><div class="ava" style="width:72px;height:72px"><img src="${M}stars-poster.webp" style="width:52px;height:52px"></div><div class="lbl" style="font-size:14px;margin-top:10px">Mavjud: <span class="num" style="color:#fff">12 450 ★</span></div></div>
+<div class="seg"><div class="on">O'zim</div><div>Boshqaga</div></div>
+<div class="cap">Paket tanlang</div>
+<div class="list">
+  ${[['star-pack-1','50','10 500',0],['star-pack-2','100','21 000',1],['star-pack-3','250','52 500',0],['star-many','500','105 000',0],['star-many','1 000','210 000',0]].map(([p,q,pr,on])=>`
+  <div class="row"><div class="ic"><img src="${M}${p}-poster.webp"></div><div class="rt"><b class="num">${q} Stars</b><span class="num">${pr} so'm</span></div>${q==='100'?'<span class="tag g" style="margin-right:6px">Ommabop</span>':''}<div class="sel ${on?'on':''}"></div></div>`).join('')}
+  <div class="row"><div class="ic">${ic('pen')}</div><div class="rt"><b>Boshqa miqdor</b><span>50 dan 10 000 gacha</span></div>${ic('right','class="chev"')}</div>
+</div>
+<div class="cta">100 Stars · <span class="num">21 000 so'm</span></div>${ind}`,
+
+premium: () => `${head('Premium')}
+<div class="hero" style="padding:4px 0 20px"><img src="${M}premium-poster.webp" style="width:110px;height:110px"><div class="big" style="font-size:28px;margin-top:8px">Telegram Premium</div><div class="lbl" style="font-size:15px;margin-top:6px">O'zingizga yoki do'stingizga</div></div>
+<div class="seg"><div class="on">O'zim</div><div>Boshqaga</div></div>
+<div class="cap">Muddat</div>
+<div class="list">
+  <div class="row"><div class="rt"><b>3 oy</b><span class="num">53 300 so'm / oy</span></div><b class="num" style="margin-right:12px">160 000 so'm</b><div class="sel"></div></div>
+  <div class="row"><div class="rt"><b>6 oy <span class="tag g" style="margin-left:6px">Ommabop</span></b><span class="num">37 500 so'm / oy</span></div><b class="num" style="margin-right:12px">225 000 so'm</b><div class="sel on"></div></div>
+  <div class="row"><div class="rt"><b>12 oy <span class="tag ok" style="margin-left:6px">−39%</span></b><span class="num">32 500 so'm / oy</span></div><b class="num" style="margin-right:12px">390 000 so'm</b><div class="sel"></div></div>
+</div>
+<div class="cap">Nimalar kiradi</div>
+<div class="list">
+  <div class="row" style="padding:8px 0"><div class="ic" style="width:32px;height:32px">${ic('star','style="width:16px;height:16px;color:var(--gold)"')}</div><div class="rt"><b style="font-size:15px">Reklamasiz, 4 GB fayllar, emoji status</b></div></div>
+</div>
+<div class="cta">6 oylik Premium · <span class="num">225 000 so'm</span></div>${ind}`,
+
+gifts: () => `${head("Sovg'alar")}
+<div class="chips" style="margin-top:8px"><div class="chip on">Hammasi</div><div class="chip">Ayiqchalar</div><div class="chip">Gullar</div><div class="chip">Yangi</div></div>
+<div class="grid2">
+  ${[['teddy','Ayiqcha','3 000','15','#2B2140'],['heart','Yurak','3 000','15','#3A1A22'],['rose','Atirgul','5 000','25','#14302A'],['giftbox','Sovg\'a','5 000','25','#33240E'],['bouquet','Guldasta','10 000','50','#1A2638'],['cake','Tort','10 000','50','#2E1A30']].map(([g,n,p,s,c])=>`
+  <div class="card"><div class="im" style="background:${c}"><img src="${M}gifts/${g}.webp"></div><b>${n}</b><span class="num">★ ${s}</span><div class="pr num">${p} so'm</div></div>`).join('')}
+</div>${ind}`,
+
+nft: () => `${sb}<div class="top"><div class="ttl" style="font-size:28px;font-weight:700;padding-left:2px">NFT</div><div class="cb">${ic('list')}</div></div>
+<div class="chips"><div class="chip on">Hammasi</div><div class="chip">Legendary</div><div class="chip">Epic</div><div class="chip">Rare</div></div>
+<div class="grid2">
+  ${[['santa-bear','Santa Bear','Legendary','4 200 000','12','#C9C1E0','g'],['diamond','Blue Diamond','Epic','2 800 000','34','#F3D54E','n'],['rocket','Rocket','Epic','1 900 000','57','#D9372E','n'],['ring','Signet Ring','Rare','1 400 000','120','#7FB7E6','n']].map(([g,n,r,p,l,c,t])=>`
+  <div class="card"><div class="im" style="background:${c}"><img src="${M}gifts/${g}.webp"></div><span class="tag ${t}" style="margin:0 0 6px">${r}</span><b>${n}</b><div class="pr num">${p} so'm</div><span class="num">${l} ta qoldi</span></div>`).join('')}
+</div>${tab('gem')}`,
+
+topup: () => `${head("Hisobni to'ldirish")}
+<div class="hero" style="padding-top:34px">
+  <div class="lbl" style="margin:0;font-size:15px">Summa</div>
+  <div class="big num" style="font-size:56px">50 000<small>so'm</small></div>
+  <div class="pill num">Joriy balans: 214 000 so'm</div>
+</div>
+<div class="chips" style="justify-content:center;margin-top:24px"><div class="chip num">10 000</div><div class="chip on num">50 000</div><div class="chip num">100 000</div><div class="chip num">500 000</div></div>
+<div class="cap">To'lov usuli</div>
+<div class="list">
+  <div class="row"><div class="ic">${ic('card')}</div><div class="rt"><b>Uzcard</b><span>Karta orqali o'tkazma</span></div><div class="sel on"></div></div>
+  <div class="row"><div class="ic">${ic('card')}</div><div class="rt"><b>Humo</b><span>Karta orqali o'tkazma</span></div><div class="sel"></div></div>
+</div>
+<p style="color:var(--t2);font-size:13px;text-align:center;margin:18px 30px 0">Min 1 000 · Maks 2 500 000 so'm. Balans to'lovdan so'ng avtomatik to'ldiriladi.</p>
+<div class="cta">To'lovga o'tish ${ic('right','width="20" height="20"')}</div>${ind}`,
+
+pay: () => `${head("To'lov")}
+<div class="hero" style="padding-top:10px">
+  <div style="width:84px;height:84px;border-radius:50%;border:3px solid var(--s2);border-top-color:var(--gold);display:grid;place-items:center;font-weight:700;font-size:20px" class="num">4:59</div>
+  <div class="lbl" style="margin-top:16px;font-size:15px">To'lov kutilmoqda</div>
+  <div class="big num">50 127<small>so'm</small></div>
+  <div class="pill">${ic('copy')} Summani nusxalash</div>
+</div>
+<p style="color:var(--bad);font-size:13px;text-align:center;margin:16px 34px 0;font-weight:500">Aynan shu summani o'tkazing — 1 so'm farq ham to'lovni kechiktiradi</p>
+<div class="cap">Qabul qiluvchi karta</div>
+<div class="grp">
+  <div class="row"><div class="rt"><span>Karta raqami</span><b class="mono" style="font-size:17px;margin-top:2px">8600 0000 0000 0000</b></div><div class="cb" style="width:34px;height:34px">${ic('copy','style="width:16px;height:16px"')}</div></div>
+  <div class="row"><div class="rt"><span>Karta egasi</span><b style="margin-top:2px">CARD HOLDER</b></div></div>
+</div>
+<div class="cta sec2">Bekor qilish</div>${ind}`,
+
+top: () => `${sb}<div class="top"><div class="ttl" style="font-size:28px;font-weight:700;padding-left:2px">Top xaridorlar</div><div class="cb">${ic('clock')}</div></div>
+<div style="display:flex;justify-content:center;align-items:flex-end;gap:22px;margin:14px 0 6px">
+  ${[['J','Jasurbek','3,18 mln','#2B2140',2,64],['A','Aziz','4,05 mln','#33240E',1,84],['M','Malika','1,92 mln','#14302A',3,64]].map(([l,n,a,c,r,s])=>`
+  <div style="text-align:center;width:92px"><div style="position:relative;width:${s}px;height:${s}px;margin:0 auto"><div class="ini" style="width:${s}px;height:${s}px;background:${c};font-size:${s/2.6}px;${r===1?'box-shadow:0 0 0 2px var(--gold),0 8px 30px rgba(245,184,41,.25)':''}">${l}</div><div style="position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:${r===1?'var(--gold)':'var(--s2)'};color:${r===1?'#000':'#fff'};font-size:12px;font-weight:700;display:grid;place-items:center">${r}</div></div><b style="display:block;margin-top:14px;font-size:15px">${n}</b><span class="num" style="font-size:13px;color:var(--t2)">${a}</span></div>`).join('')}
+</div>
+<div class="div" style="margin-top:18px"></div>
+<div class="list" style="margin-top:6px">
+  ${[['4','S','Siz','33 buyurtma','2 640 000','#1A2638',1],['5','D','Dilnoza','27 buyurtma','1 480 000','#2E1A30'],['6','B','Bekzod','22 buyurtma','1 210 000','#14302A'],['7','N','Nodira','19 buyurtma','990 000','#3A1A22']].map(([r,l,n,o,a,c,me])=>`
+  <div class="row" ${me?'style="background:var(--s1);margin:0 -12px;padding:12px;border-radius:14px;border:0"':''}><span class="num" style="width:18px;color:var(--t2);font-weight:600">${r}</span><div class="ini" style="background:${c}">${l}</div><div class="rt"><b>${n}</b><span>${o}</span></div><b class="num">${a} so'm</b></div>`).join('')}
+</div>${tab('trophy')}`,
+
+history: () => `${head('Buyurtmalar')}
+<div class="cap" style="margin-top:8px">Bugun</div>
+<div class="list">
+  <div class="row"><div class="ic"><img src="${M}stars-poster.webp"></div><div class="rt"><b>100 Stars</b><span>@sardor · 14:32</span></div><div class="rr"><b class="num">−18 500</b><span class="tag ok">Bajarildi</span></div></div>
+  <div class="row"><div class="ic"><img src="${M}premium-poster.webp"></div><div class="rt"><b>Premium · 6 oy</b><span>@dilnoza · 12:05</span></div><div class="rr"><b class="num">−195 000</b><span class="tag n">Yuborilmoqda</span></div></div>
+</div>
+<div class="cap">Kecha</div>
+<div class="list">
+  <div class="row"><div class="ic"><img src="${M}gifts/rose.webp"></div><div class="rt"><b>Atirgul</b><span>@aziz · 21:47</span></div><div class="rr"><b class="num">−9 500</b><span class="tag bad">Xatolik</span></div></div>
+  <div class="row"><div class="ic">${ic('plus')}</div><div class="rt"><b>Balans to'ldirildi</b><span>Uzcard · 19:10</span></div><div class="rr"><b class="num" style="color:var(--ok)">+200 000</b><span class="tag ok">Bajarildi</span></div></div>
+  <div class="row"><div class="ic"><img src="${M}stars-poster.webp"></div><div class="rt"><b>50 Stars</b><span>@sardor · 10:22</span></div><div class="rr"><b class="num">−10 500</b><span class="tag ok">Bajarildi</span></div></div>
+</div>${ind}`,
+
+referral: () => `${head('Hamkorlik')}
+<div class="hero" style="padding-top:30px">
+  <div class="ava"><img src="${M}gift-poster.webp"></div>
+  <div class="big num" style="font-size:64px;margin-top:18px;color:var(--gold)">3%</div>
+  <p style="color:var(--t2);font-size:15px;text-align:center;margin:6px 40px 0;line-height:1.45">Do'stingiz har bir xarid qilganda, summaning 3% balansingizga tushadi</p>
+</div>
+<div class="stats" style="margin-top:28px"><div><b class="num">7</b><span>Taklif qilingan</span></div><div><b class="num">42 300</b><span>Ishlab topilgan, so'm</span></div></div>
+<div class="cap">Sizning havolangiz</div>
+<div class="grp"><div class="row"><div class="rt"><b class="mono" style="font-size:14px;font-weight:500;color:var(--t2)">t.me/globastars_bot?start=A1…</b></div><div class="cb" style="width:34px;height:34px">${ic('copy','style="width:16px;height:16px"')}</div></div></div>
+<div class="cta">${ic('share','width="20" height="20"')} Havolani ulashish</div>${ind}`,
+
+profile: () => `${sb}
+<div class="top"><div style="width:40px"></div><div class="cb">${ic('gear')}</div></div>
+<div class="hero">
+  <div class="ini" style="width:84px;height:84px;font-size:34px;background:#2B2140">S</div>
+  <div class="big" style="font-size:26px;margin-top:14px">Sardor</div>
+  <div class="pill" style="margin-top:10px">@sardor · <span class="mono">ID 8100442</span></div>
+</div>
+<div class="stats"><div><b class="num">1</b><span>Buyurtma</span></div><div><b class="num">18 500</b><span>Sarflangan</span></div><div><b class="num">214 000</b><span>Balans</span></div></div>
+<div class="grp" style="margin-top:22px">
+  ${[['list','Buyurtmalar tarixi'],['users','Hamkorlik dasturi'],['shield','Xavfsizlik'],['help','Yordam']].map(([i,t])=>`<div class="row"><div class="ic">${ic(i)}</div><div class="rt"><b style="font-weight:500">${t}</b></div>${ic('right','class="chev"')}</div>`).join('')}
+</div>
+<div class="grp" style="margin-top:14px"><div class="row"><div class="ic" style="color:var(--bad)">${ic('out')}</div><div class="rt"><b style="font-weight:500;color:var(--bad)">Chiqish</b></div></div></div>
+${tab('user')}`,
+
+settings: () => `${head('Sozlamalar')}
+<div class="cap" style="margin-top:8px">Umumiy</div>
+<div class="grp">
+  <div class="row"><div class="ic">${ic('globe')}</div><div class="rt"><b style="font-weight:500">Til</b></div><span style="color:var(--t2);margin-right:4px">O'zbekcha</span>${ic('right','class="chev"')}</div>
+  <div class="row"><div class="ic">${ic('moon')}</div><div class="rt"><b style="font-weight:500">Mavzu</b></div><span style="color:var(--t2);margin-right:4px">Tungi</span>${ic('right','class="chev"')}</div>
+</div>
+<div class="cap">Tajriba</div>
+<div class="grp">
+  <div class="row"><div class="ic">${ic('sound')}</div><div class="rt"><b style="font-weight:500">Ovoz</b></div><div class="tg"></div></div>
+  <div class="row"><div class="ic">${ic('vib')}</div><div class="rt"><b style="font-weight:500">Tebranish</b></div><div class="tg"></div></div>
+</div>
+<div class="cap">Maxfiylik</div>
+<div class="grp">
+  <div class="row"><div class="ic">${ic('eye')}</div><div class="rt"><b style="font-weight:500">Maxfiylik rejimi</b></div><div class="tg off"></div></div>
+</div>
+<p style="color:var(--t2);font-size:13px;margin:8px 36px 0;line-height:1.4">Yoqilsa, reytingda ko'rinmaysiz va sovg'alar anonim yuboriladi.</p>
+<p style="color:var(--t3);font-size:13px;text-align:center;margin-top:40px">GlobaStars · v0.1.0</p>${ind}`,
+};
+const draw = () => { const r = location.hash.replace('#','') || 'home'; document.getElementById('app').innerHTML = (S[r]||S.home)(); };
+addEventListener('hashchange', draw); draw();
+</script>
+</body>
+</html>
