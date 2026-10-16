@@ -1,0 +1,13 @@
+employee_id,date,check_in,check_out,source,lead_report
+1,2026-10-17,08:55,,telegram,
+2,2026-10-17,09:12,,telegram,
+3,2026-10-17,,,,
+4,2026-10-17,08:40,,telegram,present
+5,2026-10-17,08:00,,telegram,present:24
+7,2026-10-17,,,,absent
+9,2026-10-17,09:01,,telegram,
+10,2026-10-17,09:35,,telegram,
+12,2026-10-17,,,,
+1,2026-09-30,08:58,18:02,telegram,
+2,2026-09-30,09:05,,telegram,
+3,2026-09-30,,,,

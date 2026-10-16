@@ -1,0 +1,4 @@
+id,position,branch,region,opened,sla_days,status
+1,Pharmacist,Branch-03,Samarkand,2026-09-01,21,open
+2,Cashier,Branch-01,Tashkent,2026-10-05,14,open
+3,Courier,Branch-02,Tashkent,2026-09-20,14,open

@@ -1,0 +1,13 @@
+id,name,position,branch,region,hire_date,dismiss_date,status,base_salary,schedule
+1,Aziza Rahimova,Pharmacist,Branch-01,Tashkent,2025-03-01,,active,6000000,2/2
+2,Javohir Toshev,Senior pharmacist,Branch-01,Tashkent,2023-07-15,,active,7500000,2/2
+3,Dilnoza Karimova,Cashier,Branch-01,Tashkent,2026-09-20,,probation,4500000,2/2
+4,Sardor Aliyev,Pharmacy head,Branch-02,Tashkent,2022-01-10,,active,9000000,5/2
+5,Malika Yusupova,Pharmacist,Branch-02,Tashkent,2026-08-05,,probation,6000000,24/48
+6,Bekzod Nurmatov,Courier,Branch-02,Tashkent,2025-11-01,2026-09-15,dismissed,3500000,5/2
+7,Nodira Saidova,Pharmacist,Branch-03,Samarkand,2024-05-20,,active,5800000,24/48
+8,Otabek Ergashev,Cashier,Branch-03,Samarkand,2026-07-01,2026-07-25,dismissed,4300000,2/2
+9,Zarina Qodirova,Pharmacy head,Branch-03,Samarkand,2021-09-01,,active,8800000,5/2
+10,Ulugbek Hasanov,Warehouse,Office,Tashkent,2024-02-12,,active,5000000,5/2
+11,Kamola Abdullayeva,Pharmacist,Branch-03,Samarkand,2026-06-10,2026-09-30,dismissed,5800000,24/48
+12,Rustam Mirzayev,Regional manager,Office,Samarkand,2020-04-01,,active,12000000,5/2
