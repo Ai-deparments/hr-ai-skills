@@ -10,6 +10,8 @@
 | **Husayn** (analytics) | Owner, HR lead, managers; Hamza | Explains turnover, vacancies and attendance by branch / region / role, with base and period |
 | **Suhayl** (employee helpdesk) | Every employee | My shift, leave balance, request status, rules, my plan. Files requests. Understands voice |
 | **Rauf** (recruiter) | Candidates; HR | Vacancy drafts, job-board publishing, Telegram interview, 4-criteria scoring, shortlist, SLA |
+| **Rauf recruiter panel** (`/rauf`) | Recruiters, HR | Rauf's own web panel: funnel and KPI (open vacancies, avg score, days to close, SLA lights), kanban pipeline, vacancies and candidates, CV archive, channel-ad deals, integration status. Cut by branch scope |
+| **Rauf HR Mini App** (`/m/rauf`) | HR (owner / HR-head Telegram IDs only) | Candidates with scores and Shortlist / Hired / Reject buttons inside Rauf's bot; a person makes every decision |
 | **Ads agent** | HR director, recruiters | Finds job channels, negotiates within budget, collects payment details. A human pays |
 | **Web HR panel** | HR, accountant, management, regional managers, recruiter | Employees, attendance, timesheet, payroll, requests, candidates, agent conversations, branch access |
 | **Team-lead cabinet** (Mini App) | Branch heads, regional managers, HR | Present/absent + hours (up to 24 h), month view, advance / penalty / bonus / warning with a reason |

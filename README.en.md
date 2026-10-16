@@ -67,6 +67,7 @@ flowchart TD
     ADS[Ads agent<br/>Telegram channel deals] -->|vacancy posts| RAUF
     HR[HR opens vacancy] --> RAUF[Rauf - recruiter<br/>post, interview, score, shortlist]
     RAUF -->|"hired (human decision)"| PANEL
+    RAUF --- RP[Rauf recruiter panel /rauf<br/>funnel, kanban, archive<br/>+ HR Mini App]
     PANEL[(Web HR panel<br/>employees, attendance, timesheet,<br/>payroll, requests, candidates)]
     PANEL --> OZODA[Ozoda - onboarding<br/>30/60/90, mentor, tests]
     EMP[Employee] -->|questions, requests, voice| SUHAYL[Suhayl - employee helpdesk]

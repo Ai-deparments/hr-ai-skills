@@ -165,6 +165,7 @@ flowchart TD
     ADS[Reklama agent] -->|vakansiya postlari| RAUF
     HR[HR vakansiya ochadi] --> RAUF[Rauf — rekruter]
     RAUF -->|"ishga olindi (inson qarori)"| PANEL
+    RAUF --- RP[Rauf paneli /rauf<br/>voronka, kanban, arxiv<br/>+ HR Mini App]
     PANEL[(Veb HR panel)] --> OZODA[Ozoda — adaptatsiya]
     EMP[Xodim] --> SUHAYL[Suhayl — yordamchi]
     EMP -->|Keldim / Ketdim| PANEL
