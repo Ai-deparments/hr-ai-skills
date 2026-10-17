@@ -8,7 +8,7 @@
 
 HR bo'limi uchun **AI agentlar** yasashda va ishlatishda foydalanadigan Claude Code skill'larim, agent personalari va MCP server.
 
-Men **Komron** ([@Kamron5505](https://github.com/Kamron5505)), **CEO AI team** kompaniyasining HR bo'limida AI agentlar dasturchisiman. Ishimning tarkibi:
+Men **Kamron** ([@Kamron5505](https://github.com/Kamron5505)), **CEO AI team** kompaniyasining HR bo'limida AI agentlar dasturchisiman. Ishimning tarkibi:
 - Telegram'dagi 7 ta AI agent;
 - veb HR panel;
 - bo'lim boshlig'i kabineti (Telegram Mini App).
@@ -87,7 +87,7 @@ Cloudflare skill'i `cloudflare-security-audit` nomi bilan o'rnatiladi. Kerak bo'
 
 Мои скиллы для Claude Code, персоны агентов и MCP-сервер, с которыми я создаю и запускаю **ИИ-агентов для HR-отдела**.
 
-Я **Комрон** ([@Kamron5505](https://github.com/Kamron5505)), разработчик ИИ-агентов в HR-департаменте компании **CEO AI team**. Моя работа:
+Я **Kamron** ([@Kamron5505](https://github.com/Kamron5505)), разработчик ИИ-агентов в HR-департаменте компании **CEO AI team**. Моя работа:
 - 7 ИИ-агентов в Telegram;
 - веб HR-панель;
 - кабинет заведующего (Telegram Mini App).
