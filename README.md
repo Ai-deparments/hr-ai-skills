@@ -41,7 +41,7 @@ Bu repozitoriyda o'sha ishning qayta ishlatiladigan qismi bor: agentlar amal qil
 | Skill | Nima qiladi |
 |---|---|
 | [default-stack](skills/default-stack/SKILL.md) | **Standart stek.** AI agent qaysi texnologiyani ishlatishni o'zi biladi va so'ramaydi: FastAPI, SQLAlchemy, aiogram, Claude API, React + Vite, Docker, hamda qoidalar |
-| [telegram-rich-format](skills/telegram-rich-format/SKILL.md) | Telegram xabar, hisobot va alertlarni chiroyli formatlash (HTML, premium emoji, tg-time); validator `tgfmt.py` bilan |
+| [telegram-rich-format](skills/telegram-rich-format/SKILL.md) | Telegram xabar, hisobot va alertlarni chiroyli formatlash: HTML, premium emoji, tg-time, **haqiqiy jadvallar va sarlavhalar** (rich messages, Bot API 10.2+), maqola rejimi; validator `tgfmt.py` bilan |
 | [screens-overview](skills/screens-overview/SKILL.md) | Ilova yoki Mini App'ning barcha ekranlarini bitta grid rasmga yig'adi |
 | [redesign-mockup](skills/redesign-mockup/SKILL.md) | Namuna dizayndan (Pinterest/Dribbble) butun ilovaning yangi dizayn maketini chizadi |
 | [perf-lag-audit](skills/perf-lag-audit/SKILL.md) | Qotish va sekinlikni o'lchab topadi va tuzatadi, oldin/keyin raqamlari bilan |
@@ -120,7 +120,7 @@ Cloudflare skill'i `cloudflare-security-audit` nomi bilan o'rnatiladi. Kerak bo'
 | Скилл | Что делает |
 |---|---|
 | [default-stack](skills/default-stack/SKILL.md) | **Стек по умолчанию.** ИИ-агент сам знает, на чём писать, и не спрашивает: FastAPI, SQLAlchemy, aiogram, Claude API, React + Vite, Docker, плюс общие правила |
-| [telegram-rich-format](skills/telegram-rich-format/SKILL.md) | Красивое оформление сообщений, отчётов и алертов в Telegram (HTML, премиум-эмодзи, tg-time), с валидатором `tgfmt.py` |
+| [telegram-rich-format](skills/telegram-rich-format/SKILL.md) | Красивое оформление сообщений, отчётов и алертов в Telegram: HTML, премиум-эмодзи, tg-time, **настоящие таблицы и заголовки** (rich messages, Bot API 10.2+), размер заголовка по важности, режим статей; валидатор `tgfmt.py` |
 | [screens-overview](skills/screens-overview/SKILL.md) | Все экраны приложения или Mini App в одной картинке-сетке |
 | [redesign-mockup](skills/redesign-mockup/SKILL.md) | Макет редизайна всего приложения по референсу (Pinterest/Dribbble) |
 | [perf-lag-audit](skills/perf-lag-audit/SKILL.md) | Находит и чинит лаги по замерам, с цифрами до и после |

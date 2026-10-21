@@ -28,7 +28,7 @@ This repo is the reusable part of that work: the rules, procedures and prompts t
 | Skill | What it does |
 |---|---|
 | [default-stack](skills/default-stack/SKILL.md) | The default stack and conventions, so an agent applies them without asking (FastAPI, SQLAlchemy, aiogram, Claude API, React + Vite, Docker) |
-| [telegram-rich-format](skills/telegram-rich-format/SKILL.md) | Telegram HTML formatting for messages, reports and alerts (premium emoji, tg-time), with the `tgfmt.py` validator |
+| [telegram-rich-format](skills/telegram-rich-format/SKILL.md) | Telegram formatting for messages, reports and alerts: HTML, premium emoji, tg-time, **rich messages with real tables and headings** (Bot API 10.2+), heading size by importance, Article mode; `tgfmt.py` validator |
 | [screens-overview](skills/screens-overview/SKILL.md) | Every screen of an app or Mini App in one grid image |
 | [redesign-mockup](skills/redesign-mockup/SKILL.md) | Full-app redesign mockup from a reference image |
 | [perf-lag-audit](skills/perf-lag-audit/SKILL.md) | Measure-first lag and jank fixes, with before/after numbers |
